@@ -25,7 +25,7 @@ class Main_window(QtWidgets.QWidget, Ui_main_window):
         domain = mail.split('@')[-1]
         if domain in ['rambler.ru', 'lenta.ru', 'autorambler.ru', 'myrambler.ru', 'ro.ru', 'rambler.ua']:
             return 'imap.rambler.ru'
-        elif domain in ['outlook.com', 'hotmail.com']:
+        elif 'outlook' in domain or 'hotmail.com' in domain:
             return 'outlook.office365.com'
         elif domain == 'yandex.ru':
             return 'imap.yandex.ru'
