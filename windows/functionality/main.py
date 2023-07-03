@@ -2,7 +2,7 @@ import email
 import imaplib
 from datetime import datetime
 
-from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5 import QtGui, QtWidgets
 from bs4 import BeautifulSoup as BS
 
 from utils.resource_path import resource_path
@@ -15,7 +15,7 @@ class Main_window(QtWidgets.QWidget, Ui_main_window):
         self.setupUi(self)
 
         # --- Window setting
-        self.setFixedSize(300, 149)
+        self.setFixedSize(317, 180)
         self.setWindowIcon(QtGui.QIcon(resource_path('images/icons/app.ico')))
 
         # --- Button signals
@@ -53,8 +53,10 @@ class Main_window(QtWidgets.QWidget, Ui_main_window):
                 if not code:
                     url = message.find('a', class_='link c-grey4')
                     if not url:
-                        QtWidgets.QMessageBox.information(self, 'Error!', 'No letter was found, try again!',
-                                                          QtWidgets.QMessageBox.Ok, QtWidgets.QMessageBox.Ok)
+                        QtWidgets.QMessageBox.information(
+                            self, 'Error!', 'No letter was found, try again!', QtWidgets.QMessageBox.Ok,
+                            QtWidgets.QMessageBox.Ok
+                        )
                     else:
                         text = url['href']
 
@@ -66,15 +68,18 @@ class Main_window(QtWidgets.QWidget, Ui_main_window):
                 self.lineEdit_code.setText(text)
 
         except ConnectionRefusedError:
-            QtWidgets.QMessageBox.warning(self, 'Error!', "This email service isn't supported!",
-                                          QtWidgets.QMessageBox.Ok, QtWidgets.QMessageBox.Ok)
+            QtWidgets.QMessageBox.warning(
+                self, 'Error!', "This email service isn't supported!", QtWidgets.QMessageBox.Ok,
+                QtWidgets.QMessageBox.Ok
+            )
         except Exception as e:
             if str(e) == "b'LOGIN failed.'":
-                QtWidgets.QMessageBox.warning(self, 'Error!', f'Wrong credentials!', QtWidgets.QMessageBox.Ok,
-                                              QtWidgets.QMessageBox.Ok)
+                QtWidgets.QMessageBox.warning(
+                    self, 'Error!', f'Wrong credentials!', QtWidgets.QMessageBox.Ok, QtWidgets.QMessageBox.Ok
+                )
 
             else:
-                QtWidgets.QMessageBox.warning(self, 'Error!', f'Something went wrong:\n'
-                                                              f'{type(e)}\n'
-                                                              f'{str(e)}', QtWidgets.QMessageBox.Ok,
-                                              QtWidgets.QMessageBox.Ok)
+                QtWidgets.QMessageBox.warning(
+                    self, 'Error!', f'Something went wrong:\n{type(e)}\n{e}', QtWidgets.QMessageBox.Ok,
+                    QtWidgets.QMessageBox.Ok
+                )

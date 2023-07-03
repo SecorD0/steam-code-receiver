@@ -1,4 +1,4 @@
-<h1><p align="center">Steam code receiver</p></h1>
+<h1><p align="center">steam-code-receiver</p></h1>
 
 <p align="center"><img src="images/icons/app.ico" width="400"></p>
 
@@ -6,17 +6,30 @@
 
 <h1><p align="center">Content</p></h1>
 
-- [Short description](#Short-description)
+- [DISCLAIMER](#DISCLAIMER)
+- [Description](#Description)
 - [Useful links](#Useful-links)
 - [How to run](#How-to-run)
     - [Windows](#Windows)
     - [Source code](#Source-code)
+- [Updating](#Updating)
+  - [Windows](#Windows-1)
+  - [Source code](#Source-code-1)
 - [Report a bug or suggest an idea](#Report-a-bug-or-suggest-an-idea)
 - [Express your gratitude](#Express-your-gratitude)
 
 
 
-<h1><p align="center">Short description</p></h1>
+<h1><p align="center">DISCLAIMER</p></h1>
+<p align="right"><a href="#Content">To the content</a></p>
+
+⠀The program has no injections — you can make the code review to make sure. Any cases of third parties gaining access to your emails aren't the fault of the developer, but of you or another person. Keep your sensitive data in a safe place.
+
+⠀By using this program you have agreed to the above and have no and won't have claims against its developer.
+
+
+
+<h1><p align="center">Description</p></h1>
 <p align="right"><a href="#Content">To the content</a></p>
 
 ⠀The program allows you to receive Steam Guard codes from an email from the accounts on which the function is selected.
@@ -34,7 +47,7 @@
 <h1><p align="center">Useful links</p></h1>
 <p align="right"><a href="#Content">To the content</a></p>
 
-⠀[Steam code receiver](https://github.com/SecorD0/steam-code-receiver)
+⠀[steam-code-receiver](https://github.com/SecorD0/steam-code-receiver)
 
 
 
@@ -56,6 +69,7 @@
    - Wrong credentials!
    - No letter was found, try again!
    - Something else.
+
 
 <h2><p align="center">Source code</p></h2>
 
@@ -81,9 +95,43 @@ pip install -r requirements.txt
    - No letter was found, try again!
    - Something else.
 
-⠀If you want to build the EXE file by yourself, use the command:
+
+⠀If you need convert a `.ui` file into a `.py`, use the command:
+```sh
+pyuic5 uis/main.ui -o windows/interface/main.py
+```
+
+
+⠀If you want to build the EXE file by yourself:
+- Install `pyinstaller`:
+```sh
+pip install pyinstaller
+```
+- Build the EXE file:
 ```sh
 pyinstaller app.py -wFn steam-code-receiver -i images/icons/app.ico --add-binary "images/icons;images/icons"
+```
+
+
+
+<h1><p align="center">Updating</p></h1>
+<p align="right"><a href="#Content">To the content</a></p>
+
+
+<h2><p align="center">Windows</p></h2>
+
+1. Download an EXE file of the new version from the [releases page](https://github.com/SecorD0/steam-code-receiver/releases) and replace the old one with it.
+
+
+<h2><p align="center">Source code</p></h2>
+
+1. Go to the repository:
+```sh
+cd steam-code-receiver
+```
+2. Update the local files:
+```sh
+git pull
 ```
 
 
@@ -99,7 +147,7 @@ pyinstaller app.py -wFn steam-code-receiver -i images/icons/app.ico --add-binary
 <p align="right"><a href="#Content">To the content</a></p>
 
 ⠀You can express your gratitude to the developer by sending fund to crypto wallets!
-- Ethereum-like address (Ethereum, BSC, Moonbeam, etc.): `0x900649087b8D7b9f799F880427DacCF2286D8F20`
+- Address of EVM networks (Ethereum, Polygon, BSC, etc.): `0x900649087b8D7b9f799F880427DacCF2286D8F20`
 - USDT TRC-20: `TNpBdjcmR5KzMVCBJTRYMJp16gCkQHu84K`
 - SOL: `DoZpXzGj5rEZVhEVzYdtwpzbXR8ifk5bajHybAmZvR4H`
 - BTC: `bc1qs4a0c3fntlhzn9j297qdsh3splcju54xscjstc`
